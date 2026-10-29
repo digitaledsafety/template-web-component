@@ -1,11 +1,11 @@
-# Modern Web Component Template
+# Digital Education & Safety Foundation - Modern Web Component Template
 
-A production-ready template and starter kit for bootstrapping high-performance Web Components with modern 2026 best practices out-of-the-box.
+A production-ready template and starter kit for bootstrapping high-performance Web Components with modern best practices out-of-the-box, maintained by Digital Education & Safety Foundation.
 
 ## Features
 
 - **Modern Standards:** Built with Shadow DOM, Constructable Stylesheets (`adoptedStyleSheets`), and observed attribute reactivity.
-- **Dual Export Patterns:** Supports both class-only modular imports and auto-registering side-effect imports (`import 'hello-world/define'`).
+- **Dual Export Patterns:** Supports both class-only modular imports and auto-registering side-effect imports (`import '@desf/web-component/define'`).
 - **Multiple Distribution Formats:** ESM (`dist/hello-world.js`) and standalone IIFE browser bundle (`dist/hello-world.iife.js`).
 - **Lightning-Fast Tooling:** Powered by [Vite](https://vitejs.dev/) for instant dev server reloads and production bundling.
 - **Automated Testing:** Unit testing with [Vitest](https://vitest.dev/) and DOM emulation via `happy-dom`.
@@ -41,7 +41,7 @@ Open [http://localhost:5173](http://localhost:5173) to view the interactive demo
 ### 1. Auto-Registering Import (Recommended for standard usage)
 
 ```javascript
-import '@your-scope/hello-world/define';
+import '@desf/web-component/define';
 
 // Now <hello-world></hello-world> is registered and ready to use in your HTML
 ```
@@ -49,7 +49,7 @@ import '@your-scope/hello-world/define';
 ### 2. Manual Class Import (Scoped registration)
 
 ```javascript
-import { HelloWorld } from '@your-scope/hello-world';
+import { HelloWorld } from '@desf/web-component';
 
 // Custom tag name definition to prevent naming conflicts
 customElements.define('my-custom-hello', HelloWorld);
@@ -125,6 +125,8 @@ customElements.define('my-custom-hello', HelloWorld);
 
 ---
 
-## License
+## Organization & License
 
-MIT
+Maintained by **Digital Education & Safety Foundation**.
+
+Licensed under the MIT License.

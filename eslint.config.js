@@ -11,6 +11,7 @@ export default [
         document: 'readonly',
         customElements: 'readonly',
         HTMLElement: 'readonly',
+        Element: 'readonly',
         CSSStyleSheet: 'readonly',
         describe: 'readonly',
         it: 'readonly',
