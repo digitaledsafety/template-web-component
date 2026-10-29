@@ -1,5 +1,4 @@
-const styles = new CSSStyleSheet();
-styles.replaceSync(`
+const COMPONENT_STYLES = `
   :host {
     display: inline-block;
     box-sizing: border-box;
@@ -14,7 +13,17 @@ styles.replaceSync(`
     border-radius: 4px;
     background-color: #f4f9ff;
   }
-`);
+`;
+
+let sharedStyleSheet = null;
+if (typeof CSSStyleSheet !== 'undefined' && 'replaceSync' in CSSStyleSheet.prototype) {
+  try {
+    sharedStyleSheet = new CSSStyleSheet();
+    sharedStyleSheet.replaceSync(COMPONENT_STYLES);
+  } catch {
+    sharedStyleSheet = null;
+  }
+}
 
 export class HelloWorld extends HTMLElement {
   static get observedAttributes() {
@@ -25,26 +34,11 @@ export class HelloWorld extends HTMLElement {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
 
-    if (shadow.adoptedStyleSheets) {
-      shadow.adoptedStyleSheets = [styles];
+    if (shadow.adoptedStyleSheets && sharedStyleSheet) {
+      shadow.adoptedStyleSheets = [sharedStyleSheet];
     } else {
       const styleTag = document.createElement('style');
-      styleTag.textContent = `
-        :host {
-          display: inline-block;
-          box-sizing: border-box;
-        }
-        p {
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-          color: #0076d6;
-          font-weight: bold;
-          margin: 0;
-          padding: 0.5rem 1rem;
-          border: 1px solid #0076d6;
-          border-radius: 4px;
-          background-color: #f4f9ff;
-        }
-      `;
+      styleTag.textContent = COMPONENT_STYLES;
       shadow.appendChild(styleTag);
     }
 

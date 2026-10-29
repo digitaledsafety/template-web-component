@@ -1,7 +1,7 @@
 {
-  "name": "@template/web-component",
+  "name": "@desf/web-component",
   "version": "1.0.0",
-  "description": "A modern, production-ready Web Component template with best practices out-of-the-box.",
+  "description": "A modern, production-ready Web Component template for Digital Education & Safety Foundation.",
   "type": "module",
   "main": "./dist/hello-world.iife.js",
   "module": "./dist/hello-world.js",
@@ -32,9 +32,10 @@
     "custom-elements",
     "shadow-dom",
     "template",
-    "vite"
+    "vite",
+    "desf"
   ],
-  "author": "",
+  "author": "Digital Education & Safety Foundation",
   "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
